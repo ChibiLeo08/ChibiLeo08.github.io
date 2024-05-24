@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulário</title>
+  <link rel="stylesheet" href="stylesheet.css">
+</head>
+<body>
+  <div id="imgdiv">
+  <img src="Screenshot 2024-05-22 195022.jpg">
+  </div>
+
+  <h1>Formulário</h1>
+
+  <div id="maindiv">
+  <form id="formulario" action="https://formspree.io/f/xkndagna" method="POST">
+
+    <label class="tmlabel email">
+      <span>Email:</span>
+      <input type="email" name="email" required>
+    </label>    
+    <label class="tmlabel">
+      <span>Sexo:</span>
+  <br></br>
+    <label>
+      <input type="radio" name="sexo" value="masculino" id="otherno" required>
+      <span>Masculino</span>
+    </label>
+    <label>
+      <input type="radio" name="sexo" value="feminino" id="otherno" required>
+      <span>Feminino</span>
+    </label>
+    <label>
+      <input type="radio" name="sexo" id="other" value="outro" required>
+      <span>Outro</span>
+      <input type="text" id="otherInput" name="outrosexo">
+    </label>
+    <label>
+      <input type="radio" name="sexo" id="otherno" required>
+      <span>Prefiro não dizer</span>
+    </label>
+  </label>
+
+    <section id="textareadiv">
+    <label class="tmlabel" id="exclude">
+      <span>O que você acha que pode ser melhorado em nosso bairro?</span>
+      <textarea name="bairro" form="formulario" required cols="50" rows="5"></textarea>
+    </label>
+
+    <label>
+      <span>Quais sugestões de melhorias você daria? (opcional)</span>
+      <textarea name="sugestões" form="formulario" cols="50" rows="5"></textarea>
+    </label>
+    </section>
+  
+    <button type="submit">Send</button>
+    </form>
+  </div>
+
+  <footer>
+  <address>Sítio Cercado <br />
+           Curitiba <br />
+           Paraná <br />
+  </address>
+  </footer>
+
+  <script>
+    // JavaScript to handle the conditional required attribute
+    const other = document.getElementById('other');
+    const otherno = document.getElementById('otherno')
+    const otherInput = document.getElementById('otherInput');
+
+    function updateRequired() {
+        if (other.checked) {
+            otherInput.setAttribute('required', 'required');
+        } else {
+            otherInput.removeAttribute('required');
+        }
+    }
+    other.addEventListener('change', updateRequired);
+    otherno.addEventListener('change', updateRequired);
+
+        // Initialize the required attribute based on the current state
+        window.addEventListener('load', updateRequired);
+  </script>
+
+</body>
+</html>
